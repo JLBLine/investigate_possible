@@ -608,12 +608,13 @@ def combine_flux(src_all,src_g,accepted_inds,plot,num_matches):
 			for ferrs in comb_ferrs:
 				for ferr in ferrs: comb_ferrs_sing.append(ferr)
 				
-			if 'combined' in dom_crit:
+			if dom_crit == 'Rejected -\nsplit':
 				return dom_crit, ra_ws, rerr_ws, dec_ws, derr_ws, np.exp(log_temp_freqs), comb_freqs_sing, comb_fluxs_sing, comb_ferrs_sing, comb_fit, comb_jstat, comb_chi_red, combined_names, set_freqs, set_fluxs, set_fits,[src_g] 
 			else:
-				return dom_crit, ra_ws, rerr_ws, dec_ws, derr_ws, np.exp(log_temp_freqs), comb_freqs_sing, comb_fluxs_sing, comb_ferrs_sing, comb_fit, comb_jstat, comb_chi_red, combined_names, set_freqs, set_fluxs, set_fits,split_sources 
-				
-			return 
+				if 'combined' in dom_crit:
+					return dom_crit, ra_ws, rerr_ws, dec_ws, derr_ws, np.exp(log_temp_freqs), comb_freqs_sing, comb_fluxs_sing, comb_ferrs_sing, comb_fit, comb_jstat, comb_chi_red, combined_names, set_freqs, set_fluxs, set_fits,[src_g] 
+				else:
+					return dom_crit, ra_ws, rerr_ws, dec_ws, derr_ws, np.exp(log_temp_freqs), comb_freqs_sing, comb_fluxs_sing, comb_ferrs_sing, comb_fit, comb_jstat, comb_chi_red, combined_names, set_freqs, set_fluxs, set_fits,split_sources
 		else:
 			if dom_crit == 'Rejected -\nsplit':
 				##It's been failed by split, but had passed by combine
