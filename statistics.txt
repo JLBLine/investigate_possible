@@ -1,0 +1,349 @@
+-------------------------------------------------------------------------
++++++++++++TOTAL NUMBER OF SOURCES: 3594 +++++++++++++++++++++++++++++++
+-------------------------------------------------------------------------
+All sources accepted:  3538
+	accepted by position:  2563
+	accepted by spectral:  441
+	accepted by combine:  511
+	accepted by splitting:  23
+All sources rejected:  22
+	rejected by position:  5
+	rejected by spectral:  17
+All sources retained to eyeball:  34
+	retained by combine:  28
+	retained by splitting:  6
+
+SINGLE MATCHES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+............Overall............
+Singles:  2054  Accepted: 2037  Rejected entirely: 17
+...........Overall Positional.............
+Singles accepted purely by position:  1991
+Singles rejected purely by position:  4
+...........Overall Spectral.............
+Singles accepted at the spectral stage:  46
+Singles rejected at the spectral stage:  13
+
+
+DOUBLE MATCHES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+............Overall............
+Doubles:  1016  Accepted: 1004  Rejected entirely: 3
+	Retained to investigate:  9
+...........Overall Positional.............
+Doubles accepted purely by position:  464
+Doubles rejected purely by position:  1
+...........Overall Spectral.............
+Doubles accepted at the spectral stage:  264
+Doubles rejected at the spectral stage:  2
+...........Overall Combine.............
+Doubles accepted at the combine stage:  276
+Doubles sent to eyeball at the combine stage:  9
+...........Overall Split.............
+Doubles accepted at the splitting stage:  0
+Doubles sent to eyeball at the splitting stage:  0
+-----------------------------------------------------------------------
+...........2 Positionally Retained...............
+	total:  535
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  250
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  276
+	sent to eyeball at the combine stage:  9
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........1 Positionally Retained...............
+	total:  480
+	accepted purely by position:  464
+	rejected purely by position:  0
+	accepted at the spectral stage:  14
+	rejected at the spectral stage:  2
+	accepted at the combine stage:  0
+	sent to eyeball at the combine stage:  0
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+
+
+TRIPLE MATCHES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+............Overall............
+Triples:  241  Accepted: 238  Rejected entirely: 0
+	Retained to investigate:  3
+...........Overall Positional.............
+Triples accepted purely by position:  43
+Triples rejected purely by position:  0
+...........Overall Spectral.............
+Triples accepted at the spectral stage:  71
+Triples rejected at the spectral stage:  0
+...........Overall Combine.............
+Triples accepted at the combine stage:  124
+Triples sent to eyeball at the combine stage:  3
+...........Overall Split.............
+Triples accepted at the splitting stage:  0
+Triples sent to eyeball at the splitting stage:  0
+-----------------------------------------------------------------------
+...........3 Positionally Retained...............
+	total:  58
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  17
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  40
+	sent to eyeball at the combine stage:  1
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........2 Positionally Retained...............
+	total:  137
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  51
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  84
+	sent to eyeball at the combine stage:  2
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........1 Positionally Retained...............
+	total:  46
+	accepted purely by position:  43
+	rejected purely by position:  0
+	accepted at the spectral stage:  3
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  0
+	sent to eyeball at the combine stage:  0
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+
+
+QUADRUPLES MATCHES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+............Overall............
+Quadruples:  178  Accepted: 166  Rejected entirely: 1
+	Retained to investigate:  11
+...........Overall Positional.............
+Quadruples accepted purely by position:  53
+Quadruples rejected purely by position:  0
+...........Overall Spectral.............
+Quadruples accepted at the spectral stage:  29
+Quadruples rejected at the spectral stage:  1
+...........Overall Combine.............
+Quadruples accepted at the combine stage:  67
+Quadruples sent to eyeball at the combine stage:  6
+...........Overall Split.............
+Quadruples accepted at the splitting stage:  17
+Quadruples sent to eyeball at the splitting stage:  5
+-----------------------------------------------------------------------
+...........4 Positionally Retained...............
+	total:  87
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  15
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  47
+	sent to eyeball at the combine stage:  4
+	accepted at the splitting stage:  16
+	sent to eyeball at the splitting stage:  5
+...........3 Positionally Retained...............
+	total:  14
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  2
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  11
+	sent to eyeball at the combine stage:  1
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........2 Positionally Retained...............
+	total:  21
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  10
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  9
+	sent to eyeball at the combine stage:  1
+	accepted at the splitting stage:  1
+	sent to eyeball at the splitting stage:  0
+...........1 Positionally Retained...............
+	total:  56
+	accepted purely by position:  53
+	rejected purely by position:  0
+	accepted at the spectral stage:  2
+	rejected at the spectral stage:  1
+	accepted at the combine stage:  0
+	sent to eyeball at the combine stage:  0
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+
+
+
+
+##Splitting turned off
+
+-------------------------------------------------------------------------
++++++++++++TOTAL NUMBER OF SOURCES: 3594 +++++++++++++++++++++++++++++++
+-------------------------------------------------------------------------
+All sources accepted:  3541
+	accepted by position:  2563
+	accepted by spectral:  441
+	accepted by combine:  537
+	accepted by splitting:  0
+All sources rejected:  22
+	rejected by position:  5
+	rejected by spectral:  17
+All sources retained to eyeball:  31
+	retained by combine:  31
+	retained by splitting:  0
+
+SINGLE MATCHES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+............Overall............
+Singles:  2054  Accepted: 2037  Rejected entirely: 17
+...........Overall Positional.............
+Singles accepted purely by position:  1991
+Singles rejected purely by position:  4
+...........Overall Spectral.............
+Singles accepted at the spectral stage:  46
+Singles rejected at the spectral stage:  13
+
+
+DOUBLE MATCHES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+............Overall............
+Doubles:  1016  Accepted: 1004  Rejected entirely: 3
+	Retained to investigate:  9
+...........Overall Positional.............
+Doubles accepted purely by position:  464
+Doubles rejected purely by position:  1
+...........Overall Spectral.............
+Doubles accepted at the spectral stage:  264
+Doubles rejected at the spectral stage:  2
+...........Overall Combine.............
+Doubles accepted at the combine stage:  276
+Doubles sent to eyeball at the combine stage:  9
+...........Overall Split.............
+Doubles accepted at the splitting stage:  0
+Doubles sent to eyeball at the splitting stage:  0
+-----------------------------------------------------------------------
+...........2 Positionally Retained...............
+	total:  535
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  250
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  276
+	sent to eyeball at the combine stage:  9
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........1 Positionally Retained...............
+	total:  480
+	accepted purely by position:  464
+	rejected purely by position:  0
+	accepted at the spectral stage:  14
+	rejected at the spectral stage:  2
+	accepted at the combine stage:  0
+	sent to eyeball at the combine stage:  0
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+
+
+TRIPLE MATCHES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+............Overall............
+Triples:  241  Accepted: 238  Rejected entirely: 0
+	Retained to investigate:  3
+...........Overall Positional.............
+Triples accepted purely by position:  43
+Triples rejected purely by position:  0
+...........Overall Spectral.............
+Triples accepted at the spectral stage:  71
+Triples rejected at the spectral stage:  0
+...........Overall Combine.............
+Triples accepted at the combine stage:  124
+Triples sent to eyeball at the combine stage:  3
+...........Overall Split.............
+Triples accepted at the splitting stage:  0
+Triples sent to eyeball at the splitting stage:  0
+-----------------------------------------------------------------------
+...........3 Positionally Retained...............
+	total:  58
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  17
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  40
+	sent to eyeball at the combine stage:  1
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........2 Positionally Retained...............
+	total:  137
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  51
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  84
+	sent to eyeball at the combine stage:  2
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........1 Positionally Retained...............
+	total:  46
+	accepted purely by position:  43
+	rejected purely by position:  0
+	accepted at the spectral stage:  3
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  0
+	sent to eyeball at the combine stage:  0
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+
+
+QUADRUPLES MATCHES++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+............Overall............
+Quadruples:  178  Accepted: 168  Rejected entirely: 1
+	Retained to investigate:  9
+...........Overall Positional.............
+Quadruples accepted purely by position:  53
+Quadruples rejected purely by position:  0
+...........Overall Spectral.............
+Quadruples accepted at the spectral stage:  29
+Quadruples rejected at the spectral stage:  1
+...........Overall Combine.............
+Quadruples accepted at the combine stage:  86
+Quadruples sent to eyeball at the combine stage:  9
+...........Overall Split.............
+Quadruples accepted at the splitting stage:  0
+Quadruples sent to eyeball at the splitting stage:  0
+-----------------------------------------------------------------------
+...........4 Positionally Retained...............
+	total:  87
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  15
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  65
+	sent to eyeball at the combine stage:  7
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........3 Positionally Retained...............
+	total:  14
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  2
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  11
+	sent to eyeball at the combine stage:  1
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........2 Positionally Retained...............
+	total:  21
+	accepted purely by position:  0
+	rejected purely by position:  0
+	accepted at the spectral stage:  10
+	rejected at the spectral stage:  0
+	accepted at the combine stage:  10
+	sent to eyeball at the combine stage:  1
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+...........1 Positionally Retained...............
+	total:  56
+	accepted purely by position:  53
+	rejected purely by position:  0
+	accepted at the spectral stage:  2
+	rejected at the spectral stage:  1
+	accepted at the combine stage:  0
+	sent to eyeball at the combine stage:  0
+	accepted at the splitting stage:  0
+	sent to eyeball at the splitting stage:  0
+
