@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Produced with astropy.io.votable version 1.0
+     http://www.astropy.org/ -->
+<VOTABLE version="1.2" xmlns="http://www.ivoa.net/xml/VOTable/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.ivoa.net/xml/VOTable/v1.2">
+ <RESOURCE type="results">
+  <TABLE>
+   <FIELD ID="Name" arraysize="*" datatype="char" name="Name" unit="">
+    <DESCRIPTION>
+     Name based on position of combined source
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="comp_v5_name" arraysize="*" datatype="char" name="comp_v5_name" unit="">
+    <DESCRIPTION>
+     Name of comp_v5 component
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="updated_RA_J2000" datatype="double" name="updated_RA_J2000" precision="E17" unit="deg">
+    <DESCRIPTION>
+     Updated Right ascension of source
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="updated_DEC_J2000" datatype="double" name="updated_DEC_J2000" precision="E17" unit="deg">
+    <DESCRIPTION>
+     Updated Declination of source
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="updated_RA_err" datatype="double" name="updated_RA_err" precision="E17" unit="deg">
+    <DESCRIPTION>
+     Error on Updated Right ascension of source
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="updated_DEC_err" datatype="double" name="updated_DEC_err" precision="E17" unit="deg">
+    <DESCRIPTION>
+     Error on Updated Declination of source
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="original_RA_J2000" datatype="double" name="original_RA_J2000" precision="E17" unit="deg">
+    <DESCRIPTION>
+     Original Right ascension of source
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="original_DEC_J2000" datatype="double" name="original_DEC_J2000" precision="E17" unit="deg">
+    <DESCRIPTION>
+     Original Declination of source
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="S_182.4" datatype="double" name="S_182.4" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux at 182.4MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="e_S_182.4" datatype="double" name="e_S_182.4" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux error at 182.4MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="S_74.0" datatype="double" name="S_74.0" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux at 74.0MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="e_S_74.0" datatype="double" name="e_S_74.0" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux error at 74.0MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="S_408.0" datatype="double" name="S_408.0" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux at 408.0MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="e_S_408.0" datatype="double" name="e_S_408.0" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux error at 408.0MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="S_843.0" datatype="double" name="S_843.0" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux at 843.0MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="e_S_843.0" datatype="double" name="e_S_843.0" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux error at 843.0MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="S_1400.0" datatype="double" name="S_1400.0" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux at 1400.0MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="e_S_1400.0" datatype="double" name="e_S_1400.0" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux error at 1400.0MHz
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="SI" datatype="double" name="SI" precision="E17" unit="">
+    <DESCRIPTION>
+     Spectral Index of Fit
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="e_SI" datatype="double" name="e_SI" precision="E17" unit="">
+    <DESCRIPTION>
+     Std error on Spectral Index of Fit
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Intercept" datatype="double" name="Intercept" precision="E17" unit="">
+    <DESCRIPTION>
+     Intercept of Fit
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="e_Intercept" datatype="double" name="e_Intercept" precision="E17" unit="">
+    <DESCRIPTION>
+     Std error on Intercept of Fit
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="S_182.4_ext" datatype="double" name="S_182.4_ext" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Flux at extrapolted to base catalogue frequency using fitted
+     values
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="e_S_182.4_ext" datatype="double" name="e_S_182.4_ext" precision="E17" unit="Jy">
+    <DESCRIPTION>
+     Error on flux extrapolted to base frequency using error on fitted
+     values
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Number_cats" datatype="long" name="Number_cats" unit="">
+    <DESCRIPTION>
+     Number of matched catalogues
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Number_matches" arraysize="*" datatype="char" name="Number_matches" unit="">
+    <DESCRIPTION>
+     Number of possible combinations in the group match
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Retained_matches" arraysize="*" datatype="char" name="Retained_matches" unit="">
+    <DESCRIPTION>
+     Number of retained (by position) combinations in the group match
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Type_matches" arraysize="*" datatype="char" name="Type_matches" unit="">
+    <DESCRIPTION>
+     At which stage the match was accepted
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Low_resids" datatype="long" name="Low_resids" unit="">
+    <DESCRIPTION>
+     Whether the fitted data had residuals above the threshold of
+     chi_reduced&lt;=2. 1 is above threshold, 0 otherwise
+    </DESCRIPTION>
+   </FIELD>
+   <FIELD ID="Flags" arraysize="*" datatype="char" name="Flags" unit="">
+    <DESCRIPTION>
+     Any flags propagated through
+    </DESCRIPTION>
+   </FIELD>
+   <DATA>
+    <TABLEDATA>
+     <TR>
+      <TD>KGS235700.7-344531.7</TD>
+      <TD>3546.0</TD>
+      <TD>359.25279</TD>
+      <TD>-34.758809999999997</TD>
+      <TD>0.00083333300000000001</TD>
+      <TD>0.00111111111111</TD>
+      <TD>359.25900000000001</TD>
+      <TD>-34.7639</TD>
+      <TD>22.208600000000001</TD>
+      <TD>0.36399999999999999</TD>
+      <TD>53.96349</TD>
+      <TD>0.18021999999999999</TD>
+      <TD>8.6999998092700004</TD>
+      <TD>0.34999999403999998</TD>
+      <TD>3.0179999999999998</TD>
+      <TD>0.0906</TD>
+      <TD>1.2847</TD>
+      <TD>0.043299999237099998</TD>
+      <TD>-1.1793536928357842</TD>
+      <TD>0.060721693105856775</TD>
+      <TD>9.0697280828923628</TD>
+      <TD>0.26877864041403277</TD>
+      <TD>18.719170464353173</TD>
+      <TD>0.022167347908736087</TD>
+      <TD>5</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>user-single</TD>
+      <TD>1</TD>
+      <TD>0.0+0.0</TD>
+     </TR>
+     <TR>
+      <TD>KGS002549.2-260212.8</TD>
+      <TD>3735.0</TD>
+      <TD>6.4548699999999997</TD>
+      <TD>-26.03689</TD>
+      <TD>0.00083333300000000001</TD>
+      <TD>0.00083333333333299999</TD>
+      <TD>6.4577999999999998</TD>
+      <TD>-26.039200000000001</TD>
+      <TD>22.041799999999999</TD>
+      <TD>0.47189999999999999</TD>
+      <TD>13.936669999999999</TD>
+      <TD>0.10678</TD>
+      <TD>17</TD>
+      <TD>0.50999999046300004</TD>
+      <TD/>
+      <TD/>
+      <TD>8.7532999999999994</TD>
+      <TD>0.26260000610400003</TD>
+      <TD>-0.038727430717821365</TD>
+      <TD>0.1691958373194023</TD>
+      <TD>2.846936530007508</TD>
+      <TD>0.79487274610369507</TD>
+      <TD>14.087759069243209</TD>
+      <TD>0.084222818359018833</TD>
+      <TD>4</TD>
+      <TD>1</TD>
+      <TD>1</TD>
+      <TD>user-single</TD>
+      <TD>1</TD>
+      <TD>0.0+0.0</TD>
+     </TR>
+    </TABLEDATA>
+   </DATA>
+  </TABLE>
+ </RESOURCE>
+</VOTABLE>
