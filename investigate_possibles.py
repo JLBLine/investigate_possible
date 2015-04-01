@@ -9,7 +9,8 @@ from itertools import combinations
 import atpy
 import optparse
 import pyfits as pf
-from astLib import astWCS, astPlots
+from astropy.wcs import WCS
+from astropy.io import fits
 import os
 from matplotlib import patches
 from sys import path
@@ -36,6 +37,9 @@ parser.add_option('-i', '--input_bayes',
 	help='Enter name of eyeball bayes file')
 
 parser.add_option('-o', '--output_name', 
+	help='Enter name for output catalogue')
+
+parser.add_option('-a', '--accept', action='store_true', default=False,
 	help='Enter name for output catalogue')
 
 options, args = parser.parse_args()
@@ -200,8 +204,8 @@ def find_extra(cat_name,print_cat,cat_data,image_cats,over_plots,wcss,source_nam
 	image_wcs = wcss[plot_ind]
 	##Work out the search boundaries based on the size of the 
 	limits = extra_plot.axis()
-	ra_max,dec_max = image_wcs.pix2wcs(limits[0],limits[3])
-	ra_min,dec_min = image_wcs.pix2wcs(limits[1],limits[2])
+	ra_max,dec_max = image_wcs.wcs_pix2world(limits[0],limits[3],0)
+	ra_min,dec_min = image_wcs.wcs_pix2world(limits[1],limits[2],0)
 	##Search the catalogue and plot the found sources
 	for line in cat_data[:-1]:
 		info = line.split('|')[1:-1]
@@ -217,11 +221,11 @@ def find_extra(cat_name,print_cat,cat_data,image_cats,over_plots,wcss,source_nam
 			derr = float(derr)
 			if rerr==-1.0: rerr=0.0
 			if derr==-1.0: derr=0.0
-			ra_img,dec_img = image_wcs.wcs2pix(ra,dec)
-			img_maj,img_min = image_wcs.wcs2pix(ra+float(major),dec+float(minor))
+			ra_img,dec_img = image_wcs.wcs_world2pix(ra,dec,0)
+			img_maj,img_min = image_wcs.wcs_world2pix(ra+float(major),dec+float(minor),0)
 			img_maj = img_maj - ra_img
 			img_min = img_min - dec_img
-			ra_img_err,dec_img_err = image_wcs.wcs2pix(ra+rerr,dec+derr)
+			ra_img_err,dec_img_err = image_wcs.wcs_world2pix(ra+rerr,dec+derr,0)
 			ra_img_err = ra_img_err - ra_img
 			dec_img_err = dec_img_err - dec_img
 			#plot_pos('s',colour1,ra_img,dec_img,ra_img_err,dec_img_err,print_cat+' '+name,6,extra_plot,'')
@@ -383,14 +387,28 @@ def do_plot_image(comp,all_info,image_cats,image_files,present_cats,source_names
 		
 		##Open the fits file - fits from nvss/vlssr website are
 		##formatted differently
-		image_file = pf.open(image_files[im_ind]) 
-		image = image_file[0].data
+		
+		#image_file = pf.open(image_files[im_ind]) 
+		#image = image_file[0].data
+		
 		#if cat in ['vlssr','nvss']: image = image[0][0]
 		
 		##Get wcs and append to be used later
-		image_wcs = astWCS.WCS(image_files[im_ind])
+		#image_wcs = astWCS.WCS(image_files[im_ind])
+		
+		hdulist = fits.open(image_files[im_ind])
+		
+		#print hdulist.info()
+		image = hdulist[0].data
+		
+		hdulist.close()
+		
+		#print image_files[im_ind]
+		
+		image_wcs = WCS(image_files[im_ind])
+		
 		wcss.append(image_wcs)
-		image_file.close()
+		#image_file.close()
 		
 		##Plot images - plot the over_plot image with vmax of 1/4 of max flux - should show any faint/
 		##sidelobe structure #vmin=0,vmax=np.max(image)/10.0
@@ -428,11 +446,11 @@ def do_plot_image(comp,all_info,image_cats,image_files,present_cats,source_names
 			##and then use wcs to translate the image coords into RA and Dec labels
 			limits = ax.axis()
 			
-			big_ra_high = image_wcs.pix2wcs(limits[0],(limits[3]-limits[2])/2)[0]
-			big_ra_low = image_wcs.pix2wcs(limits[1],(limits[3]-limits[2])/2)[0]
+			big_ra_high = image_wcs.wcs_pix2world(limits[0],(limits[3]-limits[2])/2,0)[0]
+			big_ra_low = image_wcs.wcs_pix2world(limits[1],(limits[3]-limits[2])/2,0)[0]
 			
-			big_dec_low = image_wcs.pix2wcs((limits[1]-limits[0])/2,limits[2])[1]
-			big_dec_high = image_wcs.pix2wcs((limits[1]-limits[0])/2,limits[3])[1]
+			big_dec_low = image_wcs.wcs_pix2world((limits[1]-limits[0])/2,limits[2],0)[1]
+			big_dec_high = image_wcs.wcs_pix2world((limits[1]-limits[0])/2,limits[3],0)[1]
 			
 			ax.set_xlim(limits[0],limits[1])
 			ax.set_ylim(limits[2],limits[3])
@@ -457,8 +475,6 @@ def do_plot_image(comp,all_info,image_cats,image_files,present_cats,source_names
 	##Plot Pattis catalogue here
 	KGS_file = pf.open("eor0_Restored_I_med.fits") 
 	KGS_img = KGS_file[1].data
-	
-	from astropy.wcs import WCS
 	
 	header = {'BITPIX'  : -32 ,                         
 	'NAXIS'   :                    2,
@@ -714,12 +730,15 @@ def do_plot_image(comp,all_info,image_cats,image_files,present_cats,source_names
 ##Check whether the source is already a HACK
 
 ##Catalogue data
-mrc_data = open('mrc_simple.txt' ).read().split('\n')
-sumss_data = open('sumss_simple.txt' ).read().split('\n')
-vlssr_data = open('vlssr_simple.txt' ).read().split('\n')
-nvss_data = open('nvss_simple.txt' ).read().split('\n')
-mwacs_data = open('mwacs_simple.txt' ).read().split('\n')
-fhd_data = open('simple_comp_v5.txt').read().split('\n')
+simple_cats = "/home/jline/Documents/cataloguing/RTS/extended/simple_cats"
+mrc_data = open('%s/mrc_simple.txt' %simple_cats).read().split('\n')
+sumss_data = open('%s/sumss_simple.txt' %simple_cats).read().split('\n')
+vlssr_data = open('%s/vlssr_simple.txt' %simple_cats).read().split('\n')
+nvss_data = open('%s/nvss_simple.txt' %simple_cats).read().split('\n')
+A154_data = open('%s/A154_simple.txt' %simple_cats).read().split('\n')
+A182_data = open('%s/A182_simple.txt' %simple_cats).read().split('\n')
+mwacs_data = open('%s/mwacs_simple.txt' %simple_cats).read().split('\n')
+fhd_data = open('/home/jline/Documents/cataloguing/FHD/carroll/paper/complete/simple_comp_v5.txt').read().split('\n')
 	
 ##======================================================================================
 
@@ -767,9 +786,10 @@ for comp in bayes_comp:
 	##if they exist with os.path.exist
 	image_num = bayes_comp.index(comp)+1
 			
-	image_cats = [cat for cat in ['vlssr','sumss','nvss'] if os.path.exists("./extended_fits/%s_%s.fits" %(src_all.names[0],cat))==True]
+	image_locs = "/home/jline/Documents/cataloguing/FHD/carroll/paper/complete/extended_fits"
+	image_cats = [cat for cat in ['vlssr','sumss','nvss'] if os.path.exists("%s/%s_%s.fits" %(image_locs,src_all.names[0],cat))==True]
 	#print image_cats
-	image_files =["./extended_fits/%s_%s.fits" %(src_all.names[0],cat) for cat in ['vlssr','sumss','nvss'] if os.path.exists("./extended_fits/%s_%s.fits" %(src_all.names[0],cat))==True]
+	image_files =["%s/%s_%s.fits" %(image_locs,src_all.names[0],cat) for cat in ['vlssr','sumss','nvss'] if os.path.exists("%s/%s_%s.fits" %(image_locs,src_all.names[0],cat))==True]
 
 	#Fiddle this number to plot certain information
 	i=0
@@ -855,54 +875,108 @@ for comp in bayes_comp:
 		#pass
 	#plt.close()
 	
-	fig,fig2,comb_sources = do_plot_image(comp,all_info,image_cats,image_files,present_cats,src_all.names,src_g,matches)
+	if options.accept:
+		if flags[1]!='0.0':
+			fig,fig2,comb_sources = do_plot_image(comp,all_info,image_cats,image_files,present_cats,src_all.names,src_g,matches)
 	
-	plt.show(block=False)
-	answer = raw_input('Enter either number of accepted combination, letter "c" to combine sources, or "r" to reject sources: ')
-	print "--------------------------------"
-	#answer='r'
-	choice_log.write("%s %s\n" %(src_all.names[0],str(answer)))
-	
-	meh,num_matches,accept_matches,accepted_inds,accept_type,stage = stats.split()
-	g_stats = mkl.group_stats()
-	g_stats.num_matches = num_matches
-	g_stats.retained_matches = accept_matches
-	
-	num_matches = len(matches)
-	if answer == 'r':
-		plt.close()
-		plt.close()
-		comp = comp[1:]
-		reject_pile.write(comp)
-		reject_pile.write('END_GROUP\n')
-	elif answer == 'c':
-		plt.close()
-		plt.close()
-		sources.append(comb_sources[0])
-		g_stats.accept_type = 'user-combine'
-		sources_stats.append(g_stats)
-	elif answer == 'quit':
-		plt.close()
-		plt.close()
-		break
-	else:
-		accepted_match = matches[int(answer)-1].split()
-		#print accepted_match
-		jstat_resids,params,bses,chi_resids = mkl.calculate_resids([accepted_match])
-		source = mkl.get_srcg(accepted_match)
-		source.SI = params[0][0]
-		source.intercept = params[0][1]
-		source.SI_err = bses[0][0]
-		source.intercept_err = bses[0][1]
-		if chi_resids[0]<=2:
-			source.low_resids = 0
+			plt.show(block=False)
+			answer = raw_input('Enter either number of accepted combination, letter "c" to combine sources, or "r" to reject sources: ')
+			print "--------------------------------"
+			#answer='r'
+			choice_log.write("%s %s\n" %(src_all.names[0],str(answer)))
+			
+			meh,num_matches,accept_matches,accepted_inds,accept_type,stage = stats.split()
+			g_stats = mkl.group_stats()
+			g_stats.num_matches = num_matches
+			g_stats.retained_matches = accept_matches
+			
+			num_matches = len(matches)
+			if answer == 'r':
+				plt.close()
+				plt.close()
+				comp = comp[1:]
+				reject_pile.write(comp)
+				reject_pile.write('END_GROUP\n')
+			elif answer == 'c':
+				plt.close()
+				plt.close()
+				sources.append(comb_sources[0])
+				g_stats.accept_type = 'user-combine'
+				sources_stats.append(g_stats)
+			elif answer == 'quit':
+				plt.close()
+				plt.close()
+				break
+			else:
+				accepted_match = matches[int(answer)-1].split()
+				#print accepted_match
+				jstat_resids,params,bses,chi_resids = mkl.calculate_resids([accepted_match])
+				source = mkl.get_srcg(accepted_match)
+				source.SI = params[0][0]
+				source.intercept = params[0][1]
+				source.SI_err = bses[0][0]
+				source.intercept_err = bses[0][1]
+				if chi_resids[0]<=2:
+					source.low_resids = 0
+				else:
+					source.low_resids = 1
+				sources.append(source)
+				g_stats.accept_type = 'user-single'
+				sources_stats.append(g_stats)
+				plt.close()
+				plt.close()
 		else:
-			source.low_resids = 1
-		sources.append(source)
-		g_stats.accept_type = 'user-single'
-		sources_stats.append(g_stats)
-		plt.close()
-		plt.close()
+			pass
+	else:	
+	
+		fig,fig2,comb_sources = do_plot_image(comp,all_info,image_cats,image_files,present_cats,src_all.names,src_g,matches)
+		
+		plt.show(block=False)
+		answer = raw_input('Enter either number of accepted combination, letter "c" to combine sources, or "r" to reject sources: ')
+		print "--------------------------------"
+		#answer='r'
+		choice_log.write("%s %s\n" %(src_all.names[0],str(answer)))
+		
+		meh,num_matches,accept_matches,accepted_inds,accept_type,stage = stats.split()
+		g_stats = mkl.group_stats()
+		g_stats.num_matches = num_matches
+		g_stats.retained_matches = accept_matches
+		
+		num_matches = len(matches)
+		if answer == 'r':
+			plt.close()
+			plt.close()
+			comp = comp[1:]
+			reject_pile.write(comp)
+			reject_pile.write('END_GROUP\n')
+		elif answer == 'c':
+			plt.close()
+			plt.close()
+			sources.append(comb_sources[0])
+			g_stats.accept_type = 'user-combine'
+			sources_stats.append(g_stats)
+		elif answer == 'quit':
+			plt.close()
+			plt.close()
+			break
+		else:
+			accepted_match = matches[int(answer)-1].split()
+			#print accepted_match
+			jstat_resids,params,bses,chi_resids = mkl.calculate_resids([accepted_match])
+			source = mkl.get_srcg(accepted_match)
+			source.SI = params[0][0]
+			source.intercept = params[0][1]
+			source.SI_err = bses[0][0]
+			source.intercept_err = bses[0][1]
+			if chi_resids[0]<=2:
+				source.low_resids = 0
+			else:
+				source.low_resids = 1
+			sources.append(source)
+			g_stats.accept_type = 'user-single'
+			sources_stats.append(g_stats)
+			plt.close()
+			plt.close()
 		
 updated_ras = []
 updated_decs = []
